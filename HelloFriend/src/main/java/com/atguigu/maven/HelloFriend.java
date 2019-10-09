@@ -19,5 +19,6 @@ public class HelloFriend {
 	public String getMyName(){
 		return "John";
 	}
+	public void test1(){}
 }
 
