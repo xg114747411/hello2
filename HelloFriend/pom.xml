@@ -1,0 +1,62 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.atguigu.maven</groupId>
+	<artifactId>HelloFriend</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>HelloFriend</name>
+	<description>第二个maven工程</description>
+	<!-- 项目安装到Maven仓库时： 路径拼接的规则： g：中的包名每个名字都会创建一个文件夹 a：创建一个文件夹 v：创建一个文件夹 a+"-"+v.jar 
+		拼接jar包的名字 -->
+	<properties>
+		<junit.version>4.12</junit.version>
+	</properties>
+	<dependencies>
+		<!-- Hello项目依赖了 junit HelloFriend依赖了Junit，还依赖了Hello 依赖范围：<scope></scope> 
+			默认(不设置)： 自己项目的所有的地方都可以使用(test和main下的java代码中) 依赖了自己的项目中也可以使用 compile: 默认值 
+			test:自己项目的test中才可以使用，其他地方都不可以使用 provided: web项目中有些jar包部署时不需要(servlet-api.jar)，只有编译测试时才需要使用 -->
+		<!-- https://mvnrepository.com/artifact/junit/junit -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.3.2</version>
+		</dependency>
+		<!-- 必须先安装 然后才可以使用 -->
+		<dependency>
+			<groupId>com.atguigu.maven</groupId>
+			<artifactId>Hello</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<scope>compile</scope>
+		</dependency>
+
+	</dependencies>
+
+
+	<!-- 引用插件:插件也是maven中的一个项目 -->
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.7.2</version>
+				<configuration>
+					<forkMode>once</forkMode><!--在一个进程中进行所有测试 ; 默认值:once -->
+					<argLine>-Dfile.encoding=UTF-8</argLine>
+				</configuration>
+			</plugin>
+		</plugins>
+
+	</build>
+
+
+
+
+
+</project>
