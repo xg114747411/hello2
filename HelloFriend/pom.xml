@@ -10,7 +10,7 @@
 	<!-- 项目安装到Maven仓库时： 路径拼接的规则： g：中的包名每个名字都会创建一个文件夹 a：创建一个文件夹 v：创建一个文件夹 a+"-"+v.jar 
 		拼接jar包的名字 -->
 	<properties>
-		<junit.version>4.12</junit.version>
+		<junit.version>4.13.1</junit.version>
 	</properties>
 	<dependencies>
 		<!-- Hello项目依赖了 junit HelloFriend依赖了Junit，还依赖了Hello 依赖范围：<scope></scope> 
